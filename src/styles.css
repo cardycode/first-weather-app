@@ -1,0 +1,133 @@
+body {
+  background: radial-gradient(
+    circle at 10% 20%,
+    rgb(239, 246, 249) 0%,
+    rgb(206, 239, 253) 90%
+  );
+}
+.container {
+  background: white;
+  box-shadow: 10px 10px 20px rgba(200, 202, 225, 0.2);
+  border-radius: 5px;
+  margin: 20px auto;
+  max-width: 550px;
+  padding: 10px 30px;
+  font-size: 10px;
+}
+
+h1 {
+  text-align: center;
+  font-variant: small-caps;
+}
+
+/* Search Bar */
+
+.search-icon {
+  color: black;
+}
+
+/* Container Forecast */
+.container-forecast {
+  margin-top: 5px;
+}
+
+/* Column Left  */
+.main-forecast {
+  background: rgb(249, 249, 249);
+  box-shadow: 10px 10px 20px rgba(200, 202, 225, 0.2);
+  border: 1px solid grey;
+  border-radius: 2px;
+  padding: 10px 0;
+  transition: all 150ms ease;
+}
+
+.main-forecast:hover {
+  transform: scale(1.02);
+  filter: brightness(105%);
+}
+
+h2,
+h3 {
+  text-align: center;
+  line-height: 1.5;
+}
+h2 {
+  font-size: 16px;
+}
+
+h3 {
+  font-size: 28px;
+  font-weight: 300;
+}
+
+.metric-control {
+  text-align: center;
+  font-size: 16px;
+  position: relative;
+  top: -10px;
+}
+
+#unit-C,
+#unit-F {
+  color: black;
+}
+
+img.today-img {
+  max-width: 60%;
+  display: block;
+  margin: 0 auto;
+  padding: 30px 0;
+}
+
+.today-specs {
+  font-size: 14px;
+  text-align: center;
+  line-height: 2;
+}
+
+.today-text {
+  text-transform: capitalize;
+}
+
+/* Column Right */
+.day-forecast {
+  margin: 5px 0 5px 3px;
+  display: flex;
+  align-items: center;
+}
+
+.day-forecast:hover {
+  filter: brightness(105%);
+  transform: scale(1.02);
+}
+
+.small-forecast img {
+  max-width: 100%;
+}
+
+hr {
+  border: 2px solid black;
+}
+
+.day-forecast-date {
+  text-align: left;
+}
+
+.weekday {
+  font-weight: 600;
+}
+
+.max-temp {
+  font-weight: 600;
+}
+
+.day-forecast-temp {
+  text-align: right;
+}
+
+footer {
+  color: rgb(159, 173, 191);
+  font-size: 12px;
+  text-align: center;
+  padding-top: 20px;
+}
