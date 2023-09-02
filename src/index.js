@@ -92,6 +92,7 @@ updateDay6.innerHTML = formatDay(day6);
 
 function showWeather(response) {
   console.log(response.data);
+  console.log(response.data.weather[0].icon);
   let temperature = Math.round(response.data.main.temp_max);
   let mainTemp = document.querySelector(".max-temp");
   mainTemp.innerHTML = `${temperature}º`;
@@ -117,7 +118,7 @@ function showWeather(response) {
   wind.innerHTML = `Wind Speed ${windSpeed} km/h`;
 
   let icon = document.querySelector("#today-icon");
-  icon.setAttribute("src", `src/${response.data.weather[0].icon}.png`);
+  icon.setAttribute("src", `img/${response.data.weather[0].icon}.png`);
 }
 
 function enterCity(event) {
