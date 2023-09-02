@@ -91,6 +91,7 @@ updateDay6.innerHTML = formatDay(day6);
 //display city searched for and get weather for city from API
 
 function showWeather(response) {
+  console.log(response.data);
   let temperature = Math.round(response.data.main.temp_max);
   let mainTemp = document.querySelector(".max-temp");
   mainTemp.innerHTML = `${temperature}º`;
@@ -109,11 +110,14 @@ function showWeather(response) {
 
   let humidity = response.data.main.humidity;
   let newHumidity = document.querySelector(".humidity");
-  newHumidity.innerHTML = `Humidity: ${humidity}%`;
+  newHumidity.innerHTML = `Humidity ${humidity}%`;
 
   let windSpeed = Math.round(response.data.wind.speed);
   let wind = document.querySelector(".wind");
-  wind.innerHTML = `Wind Speed: ${windSpeed} km/h`;
+  wind.innerHTML = `Wind Speed ${windSpeed} km/h`;
+
+  let icon = document.querySelector("#today-icon");
+  icon.setAttribute("src", `src/${response.data.weather[0].icon}.png`);
 }
 
 function enterCity(event) {
