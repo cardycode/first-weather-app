@@ -91,13 +91,11 @@ updateDay6.innerHTML = formatDay(day6);
 //display city searched for and get weather for city from API
 
 function showWeather(response) {
-  console.log(response.data);
-  console.log(response.data.weather[0].icon);
-  let temperature = Math.round(response.data.main.temp_max);
-  let mainTemp = document.querySelector(".max-temp");
-  mainTemp.innerHTML = `${temperature}º`;
+  maxTemperature = Math.round(response.data.main.temp_max);
+  let maxTemp = document.querySelector(".max-temp");
+  maxTemp.innerHTML = `${maxTemperature}º`;
 
-  let minTemperature = Math.round(response.data.main.temp_min);
+  minTemperature = Math.round(response.data.main.temp_min);
   let minTemp = document.querySelector(".min-temp");
   minTemp.innerHTML = `${minTemperature}º`;
 
@@ -105,9 +103,9 @@ function showWeather(response) {
   let todayText = document.querySelector(".today-text");
   todayText.innerHTML = `${todayDesc}`;
 
-  let currentTemp = Math.round(response.data.main.temp);
+  currentTemperature = Math.round(response.data.main.temp);
   let tempNow = document.querySelector(".temp-now");
-  tempNow.innerHTML = `Currently ${currentTemp}º`;
+  tempNow.innerHTML = `Currently ${currentTemperature}º`;
 
   let humidity = response.data.main.humidity;
   let newHumidity = document.querySelector(".humidity");
@@ -168,43 +166,39 @@ function currentLocation() {
 let findMe = document.querySelector("#locate-button");
 findMe.addEventListener("click", currentLocation);
 
-// convert temps to C or F when button clicked
-
-function convertC() {
-  let maxTempC = document.querySelector(".max-temp");
-  maxTempC.innerHTML = "15 º";
-  let minTempC = document.querySelector(".min-temp");
-  minTempC.innerHTML = "8 º";
-}
-
-function convertF() {
-  let maxTempF = document.querySelector(".max-temp");
-  maxTempF.innerHTML = "59 º";
-  let minTempF = document.querySelector(".min-temp");
-  minTempF.innerHTML = "40 º";
-}
-
-let updateC = document.querySelector("#unit-C");
-updateC.addEventListener("click", convertC);
-
-let updateF = document.querySelector("#unit-F");
-updateF.addEventListener("click", convertF);
-
-// make C or F button stay dark when clicked on
+// make C or F button stay dark when clicked on and convert temps to C or F
 
 function activeC(event) {
+  event.preventDefault();
   let cButton = document.querySelector(".c-button");
   cButton.classList.add("active");
   let fButton = document.querySelector(".f-button");
   fButton.classList.remove("active");
+
+  let maxTempC = document.querySelector(".max-temp");
+  maxTempC.innerHTML = maxTemperature;
+  let minTempC = document.querySelector(".min-temp");
+  minTempC.innerHTML = minTemperature;
 }
 
 function activeF(event) {
+  event.preventDefault();
   let fButton = document.querySelector(".f-button");
   fButton.classList.add("active");
   let cButton = document.querySelector(".c-button");
   cButton.classList.remove("active");
+
+  let maxTempF = document.querySelector(".max-temp");
+  let maxTempFConv = (maxTemperature * 9) / 5 + 32;
+  maxTempF.innerHTML = Math.round(maxTempFConv);
+  let minTempF = document.querySelector(".min-temp");
+  let minTempFConv = (minTemperature * 9) / 5 + 32;
+  minTempF.innerHTML = Math.round(minTempFConv);
 }
+
+let maxTemperature = null;
+let minTemperature = null;
+let currentTemperature = null;
 
 let buttonClickC = document.querySelector(".c-button");
 buttonClickC.addEventListener("click", activeC);
