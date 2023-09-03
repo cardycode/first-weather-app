@@ -176,9 +176,11 @@ function activeC(event) {
   fButton.classList.remove("active");
 
   let maxTempC = document.querySelector(".max-temp");
-  maxTempC.innerHTML = maxTemperature;
+  maxTempC.innerHTML = `${maxTemperature}º`;
   let minTempC = document.querySelector(".min-temp");
-  minTempC.innerHTML = minTemperature;
+  minTempC.innerHTML = `${minTemperature}º`;
+  let currentTempC = document.querySelector(".temp-now");
+  currentTempC.innerHTML = `Currently ${currentTemperature}º`;
 }
 
 function activeF(event) {
@@ -190,10 +192,13 @@ function activeF(event) {
 
   let maxTempF = document.querySelector(".max-temp");
   let maxTempFConv = (maxTemperature * 9) / 5 + 32;
-  maxTempF.innerHTML = Math.round(maxTempFConv);
+  maxTempF.innerHTML = `${Math.round(maxTempFConv)}º`;
   let minTempF = document.querySelector(".min-temp");
   let minTempFConv = (minTemperature * 9) / 5 + 32;
-  minTempF.innerHTML = Math.round(minTempFConv);
+  minTempF.innerHTML = `${Math.round(minTempFConv)}º`;
+  let currentTempF = document.querySelector(".temp-now");
+  let currentTempFConv = (currentTemperature * 9) / 5 + 32;
+  currentTempF.innerHTML = `Currently ${Math.round(currentTempFConv)}º`;
 }
 
 let maxTemperature = null;
