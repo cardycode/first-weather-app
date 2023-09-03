@@ -118,7 +118,12 @@ function showWeather(response) {
   wind.innerHTML = `Wind Speed ${windSpeed} km/h`;
 
   let icon = document.querySelector("#today-icon");
-  icon.setAttribute("src", `img/${response.data.weather[0].icon}.png`);
+  icon.setAttribute(
+    "src",
+    `img/${response.data.weather[0].icon}.png`,
+    "alt",
+    response.data.weather[0].description
+  );
 }
 
 function enterCity(event) {
