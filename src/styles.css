@@ -90,13 +90,13 @@ img.today-img {
 }
 
 /* Column Right */
-.day-forecast {
+.forecast {
   margin: 5px 0 5px 3px;
   display: flex;
   align-items: center;
 }
 
-.day-forecast:hover {
+.forecast:hover {
   filter: brightness(105%);
   transform: scale(1.02);
 }
@@ -113,16 +113,12 @@ hr {
   text-align: left;
 }
 
-.weekday {
-  font-weight: 600;
+.day-forecast-temp {
+  text-align: right;
 }
 
 .max-temp {
   font-weight: 600;
-}
-
-.day-forecast-temp {
-  text-align: right;
 }
 
 footer {

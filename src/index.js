@@ -41,9 +41,6 @@ function formatDay(day) {
   return DOW;
 }
 
-let day2 = new Date(now);
-day2.setDate(day2.getDate() + 1);
-
 let day3 = new Date(now);
 day3.setDate(day3.getDate() + 2);
 
@@ -55,12 +52,6 @@ day5.setDate(day5.getDate() + 4);
 
 let day6 = new Date(now);
 day6.setDate(day6.getDate() + 5);
-
-let updateDate2 = document.querySelector(".date2");
-updateDate2.innerHTML = formatDate(day2);
-
-let updateDay2 = document.querySelector(".day2");
-updateDay2.innerHTML = formatDay(day2);
 
 let updateDate3 = document.querySelector(".date3");
 updateDate3.innerHTML = formatDate(day3);
@@ -87,6 +78,40 @@ let updateDay6 = document.querySelector(".day6");
 updateDay6.innerHTML = formatDay(day6);
 
 // console.log( new Intl.DateTimeFormat("default", { hour: "numeric", minute: "numeric", hour12: true, weekday: "short", }).format(now));
+
+// display forecast
+
+function displayForecast() {
+  let forecastElement = document.querySelector(".forecast");
+
+  let forecastHTML = `<div class="row g-1">`;
+  let days = ["Mon", "Tue", "Wed", "Thu", "Fri"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+ <div class="col-3 day-forecast-date">
+    <div class="day-forecast">${day}</div>
+    <div class="date-forecast">24th</div>
+  </div>
+  <div class="col-4 small-forecast">
+    <img
+      src="img/04d.png"
+      alt="partly sunny"
+    />
+  </div>
+  <div class="col-5 day-forecast-temp">
+    <span class="max-temp-forecast">29 º</span> /<span class="min-temp-forecast">16 º</span>
+  </div>
+  <hr />`;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+  console.log(forecastHTML);
+}
+
+displayForecast();
 
 //display city searched for and get weather for city from API
 
