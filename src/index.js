@@ -108,10 +108,17 @@ function displayForecast() {
 
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
-  console.log(forecastHTML);
 }
 
 displayForecast();
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let unit = "metric";
+  let apiKey = "f3887e262c88d1158f7e2ef4998e234c";
+  let apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=${unit}`;
+  console.log(apiUrl);
+}
 
 //display city searched for and get weather for city from API
 
@@ -147,6 +154,7 @@ function showWeather(response) {
     "alt",
     response.data.weather[0].description
   );
+  getForecast(response.data.coord);
 }
 
 function enterCity(event) {
