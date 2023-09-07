@@ -53,30 +53,6 @@ day5.setDate(day5.getDate() + 4);
 let day6 = new Date(now);
 day6.setDate(day6.getDate() + 5);
 
-let updateDate3 = document.querySelector(".date3");
-updateDate3.innerHTML = formatDate(day3);
-
-let updateDay3 = document.querySelector(".day3");
-updateDay3.innerHTML = formatDay(day3);
-
-let updateDate4 = document.querySelector(".date4");
-updateDate4.innerHTML = formatDate(day4);
-
-let updateDay4 = document.querySelector(".day4");
-updateDay4.innerHTML = formatDay(day4);
-
-let updateDate5 = document.querySelector(".date5");
-updateDate5.innerHTML = formatDate(day5);
-
-let updateDay5 = document.querySelector(".day5");
-updateDay5.innerHTML = formatDay(day5);
-
-let updateDate6 = document.querySelector(".date6");
-updateDate6.innerHTML = formatDate(day6);
-
-let updateDay6 = document.querySelector(".day6");
-updateDay6.innerHTML = formatDay(day6);
-
 // console.log( new Intl.DateTimeFormat("default", { hour: "numeric", minute: "numeric", hour12: true, weekday: "short", }).format(now));
 
 // display forecast
@@ -88,11 +64,18 @@ function formatForecastDay(timestamp) {
   return days[day];
 }
 
+function formatForecastDate(timestamp) {
+  let date = new Date(timestamp * 1000);
+  console.log(date);
+  let shortDate = date.getDate();
+  return shortDate;
+}
+
 function displayForecast(response) {
   let forecastData = response.data.daily;
   let forecastElement = document.querySelector(".forecast");
 
-  let forecastHTML = `<div class="row g-1">`;
+  let forecastHTML = `<div class="row g-1"> <hr/>`;
 
   forecastData.forEach(function (forecastDay, index) {
     if (index < 5) {
@@ -101,7 +84,7 @@ function displayForecast(response) {
         `
  <div class="col-3 day-forecast-date">
     <div class="day-forecast">${formatForecastDay(forecastDay.dt)}</div>
-    <div class="date-forecast">24th</div>
+    <div class="date-forecast">${formatForecastDate(forecastDay.dt)}</div>
   </div>
   <div class="col-4 small-forecast">
     <img
