@@ -48,6 +48,9 @@
       <div class="row">
         <div class="col-6">
           <h1>Weather</h1>
+          <h2>
+              <span class="update-day">Today: 4:46PM</span>
+            </h2>
         </div>
 
         <div class="col-6">
@@ -82,41 +85,40 @@
           </div>
         </div>
       </div>
-
+  
       <div class="container-forecast">
         <div class="row">
           <div class="col-6 main-forecast">
-            <h2>
-              <span class="update-day">Today: 4:46PM</span>
-            </h2>
+          
             <h3>
               <span class="max-temp">26 º</span> / 
               <span class="min-temp">15 º</span>
-            </h3>
-            <div class="metric-control">
+            <span class="metric-control">
               <button
                 type="button"
-                class="btn btn-outline-secondary c-button active"
+                class="btn btn-light btn-sm c-button active"
               >
                 <a
                   href="#"
                   id="unit-C"
-                  >ºC</a
+                  >C</a
                 >
               </button>
               |
               <button
                 type="button"
-                class="btn btn-outline-secondary f-button"
+                class="btn btn-light btn-sm f-button"
               >
                 <a
                   href="#"
                   id="unit-F"
-                  >ºF</a
+                  >F</a
                 >
               </button>
-            </div>
-
+            </span>
+            </h3>
+            
+<div class="today-text">Sunny</div>
             <img
               class="today-img"
               src="img/01d.png"
@@ -125,7 +127,6 @@
             />
 
             <div class="today-specs">
-              <div class="today-text">Sunny</div>
               <div class="temp-now">Currently 11 º</div>
               <div class="humidity">Humidity 38%</div>
               <div class="wind">Wind 10 km/h</div>

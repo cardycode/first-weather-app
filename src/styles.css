@@ -91,6 +91,9 @@ h3 {
 
 .today-text {
   text-transform: capitalize;
+  font-size: 14px;
+  text-align: center;
+  line-height: 2;
 }
 
 #current-color {
