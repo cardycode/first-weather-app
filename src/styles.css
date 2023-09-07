@@ -35,14 +35,13 @@ h1 {
 .main-forecast {
   background: rgb(249, 249, 249);
   box-shadow: 10px 10px 20px rgba(200, 202, 225, 0.2);
-  border: 1px solid grey;
+  border: 1px solid rgb(112, 145, 255);
   border-radius: 2px;
-  padding: 10px 0;
+  padding: 5px 0;
   transition: all 150ms ease;
 }
 
 .main-forecast:hover {
-  transform: scale(1.02);
   filter: brightness(105%);
 }
 
@@ -72,11 +71,16 @@ h3 {
   color: black;
 }
 
-img.today-img {
+#today-icon {
   max-width: 60%;
   display: block;
   margin: 0 auto;
   padding: 30px 0;
+  transition: all 150ms ease;
+}
+
+#today-icon:hover {
+  transform: scale(1.05);
 }
 
 .today-specs {
@@ -89,6 +93,18 @@ img.today-img {
   text-transform: capitalize;
 }
 
+#current-color {
+  color: rgb(45, 118, 192);
+}
+
+#humidity-color {
+  color: rgb(45, 118, 192);
+}
+
+#wind-color {
+  color: rgb(45, 118, 192);
+}
+
 /* Column Right */
 .forecast {
   margin: 5px 0 5px 3px;
@@ -98,27 +114,48 @@ img.today-img {
 
 .forecast:hover {
   filter: brightness(105%);
-  transform: scale(1.02);
 }
 
-.small-forecast img {
-  max-width: 100%;
+.forecast-icon img {
+  max-width: 85%;
+  transition: all 150ms ease;
+  position: relative;
+  bottom: 7px;
+  right: 10px;
+}
+
+.forecast-icon:hover {
+  transform: scale(1.05);
 }
 
 hr {
-  border: 2px solid black;
+  border: 2px solid rgb(112, 145, 255);
 }
 
-.day-forecast-date {
+.forecast-left {
   text-align: left;
+  font-size: 20px;
+  position: relative;
+  left: 5px;
+  bottom: 5px;
 }
 
-.day-forecast-temp {
+.forecast-right {
   text-align: right;
+  font-size: 16px;
+  position: relative;
+  top: 10px;
 }
 
-.max-temp {
+.max-temp,
+.max-temp-forecast {
   font-weight: 600;
+  color: rgb(45, 118, 192);
+}
+.min-temp,
+.min-temp-forecast {
+  opacity: 80%;
+  color: rgb(45, 118, 192);
 }
 
 footer {

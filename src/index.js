@@ -66,7 +66,6 @@ function formatForecastDay(timestamp) {
 
 function formatForecastDate(timestamp) {
   let date = new Date(timestamp * 1000);
-  console.log(date);
   let shortDate = date.getDate();
   return shortDate;
 }
@@ -82,20 +81,20 @@ function displayForecast(response) {
       forecastHTML =
         forecastHTML +
         `
- <div class="col-3 day-forecast-date">
+ <div class="col-4 forecast-left">
     <div class="day-forecast">${formatForecastDay(forecastDay.dt)}</div>
     <div class="date-forecast">${formatForecastDate(forecastDay.dt)}</div>
   </div>
-  <div class="col-4 small-forecast">
+  <div class="col-4 forecast-icon">
     <img
       src="img/${forecastDay.weather[0].icon}.png"
       alt="partly sunny"
     />
   </div>
-  <div class="col-5 day-forecast-temp">
+  <div class="col-4 forecast-right">
     <span class="max-temp-forecast">${Math.round(
       forecastDay.temp.max
-    )}º</span> /<span class="min-temp-forecast">${Math.round(
+    )}º</span> / <span class="min-temp-forecast">${Math.round(
           forecastDay.temp.min
         )}º</span>
   </div>
@@ -133,15 +132,15 @@ function showWeather(response) {
 
   currentTemperature = Math.round(response.data.main.temp);
   let tempNow = document.querySelector(".temp-now");
-  tempNow.innerHTML = `Currently ${currentTemperature}º`;
+  tempNow.innerHTML = `Currently <span id="current-color">${currentTemperature}º</span>`;
 
   let humidity = response.data.main.humidity;
   let newHumidity = document.querySelector(".humidity");
-  newHumidity.innerHTML = `Humidity ${humidity}%`;
+  newHumidity.innerHTML = `Humidity <span id ="humidity-color">${humidity}%</span>`;
 
   let windSpeed = Math.round(response.data.wind.speed);
   let wind = document.querySelector(".wind");
-  wind.innerHTML = `Wind Speed ${windSpeed} km/h`;
+  wind.innerHTML = `Wind Speed <span id="wind-color">${windSpeed} km/h </span>`;
 
   let icon = document.querySelector("#today-icon");
   icon.setAttribute(
