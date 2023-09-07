@@ -96,6 +96,10 @@ h3 {
   line-height: 2;
 }
 
+#temp-now-color {
+  color: rgb(45, 118, 192);
+}
+
 #current-color {
   color: rgb(45, 118, 192);
 }

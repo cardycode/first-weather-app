@@ -79,13 +79,14 @@ function formatForecastDate(timestamp) {
 }
 
 function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastData = response.data.daily;
   let forecastElement = document.querySelector(".forecast");
 
   let forecastHTML = `<div class="row g-1"> <hr/>`;
 
   forecastData.forEach(function (forecastDay, index) {
-    if (index < 5) {
+    if (index >= 1 && index < 6) {
       forecastHTML =
         forecastHTML +
         `
@@ -146,7 +147,7 @@ function showWeather(response) {
   let newHumidity = document.querySelector(".humidity");
   newHumidity.innerHTML = `Humidity <span id ="humidity-color">${humidity}%</span>`;
 
-  let windSpeed = Math.round(response.data.wind.speed);
+  windSpeed = Math.round(response.data.wind.speed);
   let wind = document.querySelector(".wind");
   wind.innerHTML = `Wind Speed <span id="wind-color">${windSpeed} km/h </span>`;
 
@@ -187,7 +188,10 @@ function newLocation(response) {
 function findLocation(position) {
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
+  getLocalWeather(lat, lon);
+}
 
+function getLocalWeather(lat, lon) {
   let unit = "metric";
   let apiKey = "f1f3df11762d58c6c6cc9b0c0b6c69d9";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${unit}`;
@@ -216,7 +220,9 @@ function activeC(event) {
   let minTempC = document.querySelector(".min-temp");
   minTempC.innerHTML = `${minTemperature}º`;
   let currentTempC = document.querySelector(".temp-now");
-  currentTempC.innerHTML = `Currently ${currentTemperature}º`;
+  currentTempC.innerHTML = `Currently <span id="current-color">${currentTemperature}º</span>`;
+  let wind = document.querySelector(".wind");
+  wind.innerHTML = `Wind Speed <span id="wind-color">${windSpeed} km/h </span>`;
 }
 
 function activeF(event) {
@@ -234,12 +240,21 @@ function activeF(event) {
   minTempF.innerHTML = `${Math.round(minTempFConv)}º`;
   let currentTempF = document.querySelector(".temp-now");
   let currentTempFConv = (currentTemperature * 9) / 5 + 32;
-  currentTempF.innerHTML = `Currently ${Math.round(currentTempFConv)}º`;
+  currentTempF.innerHTML = `Currently <span id="current-color">${Math.round(
+    currentTempFConv
+  )}º</span>`;
+  let wind = document.querySelector(".wind");
+  let windImperial = windSpeed * 0.621371;
+  wind.innerHTML = `Wind Speed <span id="wind-color">${Math.round(
+    windImperial
+  )} mi/h </span>`;
 }
 
 let maxTemperature = null;
 let minTemperature = null;
 let currentTemperature = null;
+let windSpeed = null;
+navigator.geolocation.getCurrentPosition(findLocation);
 
 let buttonClickC = document.querySelector(".c-button");
 buttonClickC.addEventListener("click", activeC);
