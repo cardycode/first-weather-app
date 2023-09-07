@@ -1,7 +1,15 @@
 //set current date and time
 
 function formatTime(currentdate) {
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
 
   let hour = currentdate.getHours();
 
@@ -20,7 +28,7 @@ function formatTime(currentdate) {
   }
   let day = days[currentdate.getDay()];
 
-  return `${day}: ${hour}:${minute} ${AmOrPm}`;
+  return `${day} ${hour}:${minute} ${AmOrPm}`;
 }
 
 let now = new Date();
