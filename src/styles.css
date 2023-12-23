@@ -26,6 +26,10 @@ h1 {
   color: black;
 }
 
+.location-icon {
+  color: black;
+}
+
 /* Container Forecast */
 .container-forecast {
   margin-top: 5px;
