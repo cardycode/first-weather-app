@@ -46,14 +46,14 @@
   <body>
     <div class="container">
       <div class="row">
-        <div class="col-6">
+        <div class="col-md-6">
           <h1>Weather</h1>
           <h2>
-              <span class="update-day">Today: 4:46PM</span>
-            </h2>
+            <span class="update-day">Today: 4:46PM</span>
+          </h2>
         </div>
 
-        <div class="col-6">
+        <div class="col-md-6">
           <div class="row">
             <form id="search-form">
               <div class="input-group mb-3">
@@ -85,40 +85,39 @@
           </div>
         </div>
       </div>
-  
+
       <div class="container-forecast">
         <div class="row">
-          <div class="col-6 main-forecast">
-          
+          <div class="col-md-6 main-forecast">
             <h3>
-              <span class="max-temp">26 º</span> / 
+              <span class="max-temp">26 º</span> /
               <span class="min-temp">15 º</span>
-            <span class="metric-control">
-              <button
-                type="button"
-                class="btn btn-light btn-sm c-button active"
-              >
-                <a
-                  href="#"
-                  id="unit-C"
-                  >C</a
+              <span class="metric-control">
+                <button
+                  type="button"
+                  class="btn btn-light btn-sm c-button active"
                 >
-              </button>
-              |
-              <button
-                type="button"
-                class="btn btn-light btn-sm f-button"
-              >
-                <a
-                  href="#"
-                  id="unit-F"
-                  >F</a
+                  <a
+                    href="#"
+                    id="unit-C"
+                    >C</a
+                  >
+                </button>
+                |
+                <button
+                  type="button"
+                  class="btn btn-light btn-sm f-button"
                 >
-              </button>
-            </span>
+                  <a
+                    href="#"
+                    id="unit-F"
+                    >F</a
+                  >
+                </button>
+              </span>
             </h3>
-            
-<div class="today-text">Sunny</div>
+
+            <div class="today-text">Sunny</div>
             <img
               class="today-img"
               src="img/01d.png"
@@ -127,18 +126,16 @@
             />
 
             <div class="today-specs">
-              <div class="temp-now">Currently <span id = "temp-now-color">11 º</span></div>
+              <div class="temp-now">
+                Currently <span id="temp-now-color">11 º</span>
+              </div>
               <div class="humidity">Humidity 38%</div>
               <div class="wind">Wind 10 km/h</div>
             </div>
           </div>
 
-          <div class="col-6">
-          
+          <div class="col-md-6">
             <div class="forecast"></div>
-
-              
-            </div>
           </div>
         </div>
       </div>
